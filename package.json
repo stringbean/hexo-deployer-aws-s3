@@ -1,6 +1,6 @@
 {
   "name": "@string-bean/hexo-deployer-aws-s3",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Hexo plugin for deploying to S3",
   "main": "index.js",
   "scripts": {
@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.48.0",
-    "@aws-sdk/credential-provider-ini": "^3.48.0"
+    "@aws-sdk/credential-provider-ini": "^3.48.0",
+    "mime": "^3.0.0"
   }
 }
