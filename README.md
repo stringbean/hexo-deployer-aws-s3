@@ -28,13 +28,27 @@ deploy:
 
 And then deploy using `hexo deploy`.
 
+### CloudFront Invalidation
+
+After deploying to S3 the plugin can optionally invalidate a CloudFront distribution to force a cache refresh. To do
+this, add the CloudFront distribution ID to your Hexo config:
+
+```yaml
+deploy:
+  type: aws-s3
+  region: us-east-1
+  bucket: example-bucket
+  cloudfront_distribution: EXAMPLE123
+```
+
 ## Options
 
-| Name             | Default    | Description                                                          |
-|------------------|------------|----------------------------------------------------------------------|
-| `region`         | _required_ | AWS region that the bucket is hosted in.                             |
-| `bucket`         | _required_ | AWS bucket to upload to.                                             | 
-| `profile`        | `default`  | AWS credentials profile to use (see [Named Profiles][aws-profiles]). |
-| `delete_unknown` | `false`    | If `true` then any unknown files will be deleted from the bucket.    |
+| Name                      | Default    | Description                                                          |
+|---------------------------|------------|----------------------------------------------------------------------|
+| `region`                  | _required_ | AWS region that the bucket is hosted in.                             |
+| `bucket`                  | _required_ | AWS bucket to upload to.                                             | 
+| `profile`                 | `default`  | AWS credentials profile to use (see [Named Profiles][aws-profiles]). |
+| `delete_unknown`          | `false`    | If `true` then any unknown files will be deleted from the bucket.    |
+| `cloudfront_distribution` | _none_     | CloudFront distribution ID to invalidate on deploy.                  |
 
 [aws-profiles]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
