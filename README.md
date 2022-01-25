@@ -41,14 +41,55 @@ deploy:
   cloudfront_distribution: EXAMPLE123
 ```
 
+### Redirect Rules
+
+Adding S3 [webpage redirects][s3-redirects] is supported via entries in the Hexo config and via page front-matter.
+
+:warning: Any existing webpage redirects configured for the S3 bucket will get overwritten by the redirects generated
+by this plugin.
+
+#### Via Front-Matter
+
+With a `permalink` setting of `:year/:month/:day/:title/` and the following front-matter:
+
+```yaml
+---
+title: Exciting Post
+date: 2022-01-01 12:00:00
+redirect_from: old-path.html
+---
+```
+
+A redirect from `old-path.html` to `2022/01/01/exciting-post` will be generated.  
+
+#### Via Config
+
+Additionally, redirects can be specified directly in the Hexo config: 
+
+```yaml
+deploy:
+  type: aws-s3
+  redirects:
+    'old.html': 'new-post'
+    'another.html': 'pages/something/new'
+```
+
+Will generate the following redirects:
+
+- `old.html` to `new-post`.
+- `another.html` to `pages/something/new`.
+
 ## Options
 
-| Name                      | Default    | Description                                                          |
-|---------------------------|------------|----------------------------------------------------------------------|
-| `region`                  | _required_ | AWS region that the bucket is hosted in.                             |
-| `bucket`                  | _required_ | AWS bucket to upload to.                                             | 
-| `profile`                 | `default`  | AWS credentials profile to use (see [Named Profiles][aws-profiles]). |
-| `delete_unknown`          | `false`    | If `true` then any unknown files will be deleted from the bucket.    |
-| `cloudfront_distribution` | _none_     | CloudFront distribution ID to invalidate on deploy.                  |
+| Name                      | Default    | Description                                                                           |
+|---------------------------|------------|---------------------------------------------------------------------------------------|
+| `region`                  | _required_ | AWS region that the bucket is hosted in.                                              |
+| `bucket`                  | _required_ | AWS bucket to upload to.                                                              | 
+| `profile`                 | `default`  | AWS credentials profile to use (see [Named Profiles][aws-profiles]).                  |
+| `delete_unknown`          | `false`    | If `true` then any unknown files will be deleted from the bucket.                     |
+| `cloudfront_distribution` | _none_     | CloudFront distribution ID to invalidate on deploy.                                   |
+| `redirects`               | _none_     | Mappings of from path → destination path that will get converted into redirect rules. |
+| `host_name`               | _none_     | Domain name of the S3 website that will be used for redirects.                        |
 
 [aws-profiles]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+[s3-redirects]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-page-redirect.html
