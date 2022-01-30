@@ -79,6 +79,26 @@ Will generate the following redirects:
 - `old.html` to `new-post`.
 - `another.html` to `pages/something/new`.
 
+### Cache Policies
+
+Cache expiry durations can be defined on a per MIME type basis and are defined in seconds. Any unmatched MIME types will
+be served without a cache header. 
+
+For example:
+
+```yaml
+deploy:
+  type: aws-s3
+  cache_policies:
+    text/css: 86400 # 24 hours
+```
+
+Will serve the following header for CSS files:
+
+```text
+Cache-Control: public, max-age=86400;
+```
+
 ## Options
 
 | Name                      | Default    | Description                                                                           |
@@ -90,6 +110,7 @@ Will generate the following redirects:
 | `cloudfront_distribution` | _none_     | CloudFront distribution ID to invalidate on deploy.                                   |
 | `redirects`               | _none_     | Mappings of from path → destination path that will get converted into redirect rules. |
 | `host_name`               | _none_     | Domain name of the S3 website that will be used for redirects.                        |
+| `cache_policies`          | _none_     | Map of MIME types to cache-expiry duration (in seconds).                              |
 
 [aws-profiles]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [s3-redirects]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/how-to-page-redirect.html
