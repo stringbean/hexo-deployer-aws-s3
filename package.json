@@ -4,9 +4,11 @@
   "description": "Hexo plugin for deploying to S3",
   "main": "index.js",
   "scripts": {
+    "ci": "concurrently npm:lint npm:prettier:check",
     "lint": "eslint index.js lib/*.js",
     "lint:fix": "eslint --fix index.js lib/*.js",
-    "prettier": "prettier '**/*.js' --write"
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier -c ."
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,7 @@
   },
   "devDependencies": {
     "@types/hexo": "^3.8.7",
+    "concurrently": "^8.0.1",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "hexo": "^6.0.0",
