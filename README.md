@@ -60,11 +60,11 @@ redirect_from: old-path.html
 ---
 ```
 
-A redirect from `old-path.html` to `2022/01/01/exciting-post` will be generated.  
+A redirect from `old-path.html` to `2022/01/01/exciting-post` will be generated.
 
 #### Via Config
 
-Additionally, redirects can be specified directly in the Hexo config: 
+Additionally, redirects can be specified directly in the Hexo config:
 
 ```yaml
 deploy:
@@ -82,7 +82,7 @@ Will generate the following redirects:
 ### Cache Policies
 
 Cache expiry durations can be defined on a per MIME type basis and are defined in seconds. Any unmatched MIME types will
-be served without a cache header. 
+be served without a cache header.
 
 For example:
 
@@ -102,9 +102,9 @@ Cache-Control: public, max-age=86400;
 ## Options
 
 | Name                      | Default    | Description                                                                           |
-|---------------------------|------------|---------------------------------------------------------------------------------------|
+| ------------------------- | ---------- | ------------------------------------------------------------------------------------- |
 | `region`                  | _required_ | AWS region that the bucket is hosted in.                                              |
-| `bucket`                  | _required_ | AWS bucket to upload to.                                                              | 
+| `bucket`                  | _required_ | AWS bucket to upload to.                                                              |
 | `profile`                 | `default`  | AWS credentials profile to use (see [Named Profiles][aws-profiles]).                  |
 | `delete_unknown`          | `false`    | If `true` then any unknown files will be deleted from the bucket.                     |
 | `cloudfront_distribution` | _none_     | CloudFront distribution ID to invalidate on deploy.                                   |

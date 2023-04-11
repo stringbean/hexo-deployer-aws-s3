@@ -4,10 +4,9 @@ module.exports = {
     node: true,
   },
   parserOptions: {
-    ecmaVersion: '2018',
+    ecmaVersion: '2020',
   },
-  plugins: ['jest'],
-  extends: ['eslint:recommended', 'prettier', 'plugin:jest/recommended'],
+  extends: ['eslint:recommended', 'prettier'],
   rules: {
     quotes: ['error', 'single'],
     'comma-dangle': ['error', 'always-multiline'],
