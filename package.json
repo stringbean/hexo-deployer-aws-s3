@@ -4,7 +4,6 @@
   "description": "Hexo plugin for deploying to S3",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
     "lint": "eslint index.js lib/*.js",
     "lint:fix": "eslint --fix index.js lib/*.js",
     "prettier": "prettier '**/*.js' --write"
@@ -32,9 +31,7 @@
     "@types/hexo": "^3.8.7",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-jest": "^25.7.0",
     "hexo": "^6.0.0",
-    "jest": "^27.4.7",
     "prettier": "^2.5.1"
   },
   "dependencies": {
