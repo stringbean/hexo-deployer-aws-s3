@@ -1,6 +1,6 @@
 {
   "name": "@string-bean/hexo-deployer-aws-s3",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "description": "Hexo plugin for deploying to S3",
   "main": "index.js",
   "scripts": {
