@@ -30,11 +30,10 @@
     "node": ">=14.0.0"
   },
   "devDependencies": {
-    "@types/hexo": "^3.8.7",
     "concurrently": "^8.0.1",
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
-    "hexo": "^6.0.0",
+    "hexo": "^7.0.0",
     "prettier": "^2.5.1"
   },
   "dependencies": {
